@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
+import uvicorn
 
 # Cargar el modelo entrenado (asegúrate de tener el archivo random_forest_model.joblib en la misma carpeta)
 model = joblib.load("random_forest_model.joblib")
@@ -34,5 +35,4 @@ def predict(data: CustomerData):
 
 # Iniciar el servidor de FastAPI si el script se ejecuta directamente
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run("app:app", host="0.0.0.0", port=8000)
