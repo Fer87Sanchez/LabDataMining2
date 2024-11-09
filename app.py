@@ -5,7 +5,7 @@ import joblib
 import numpy as np
 import uvicorn
 
-# Cargar el modelo entrenado (asegúrate de tener el archivo random_forest_model.joblib en la misma carpeta)
+# Cargar el modelo entrenado
 model = joblib.load("random_forest_model.joblib")
 
 # Inicializar la aplicación FastAPI
@@ -17,7 +17,7 @@ class CustomerData(BaseModel):
     total_spent: float
     avg_purchase_value: float
     online_activity_score: float
-    gender: int  # Usa 1 para masculino, 0 para femenino, según tu codificación
+    gender: int 1
 
 # Endpoint para la predicción
 @app.post("/predict")
@@ -29,7 +29,7 @@ def predict(data: CustomerData):
     prediction = model.predict(features)
     
     # Convertir la predicción en un resultado legible
-    customer_segment = int(prediction[0])  # Aquí puedes mapear el número a una etiqueta de texto si es necesario
+    customer_segment = int(prediction[0])
     
     return {"customer_segment": customer_segment}
 
