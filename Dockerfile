@@ -12,7 +12,7 @@ COPY app.py .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el archivo del modelo al contenedor
-COPY random_forest_model.joblib .
+COPY random_forest_model.joblib /app/random_forest_model.joblib .
 
 # Expone el puerto 8000 para FastAPI
 EXPOSE 8000
