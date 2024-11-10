@@ -17,7 +17,8 @@ class CustomerData(BaseModel):
     total_spent: float
     avg_purchase_value: float
     online_activity_score: float
-    gender: int 1
+    gender: int = 1
+
 
 # Endpoint para la predicción
 @app.post("/predict")
